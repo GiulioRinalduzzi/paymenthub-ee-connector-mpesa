@@ -60,7 +60,7 @@ public class AuthRoutes extends RouteBuilder {
                 .process(exchange -> {
                     accessTokenStore.setAccessToken(exchange.getIn().getBody(AccessTokenResponseDTO.class).getAccessToken());
                     accessTokenStore.setExpiresOn(exchange.getIn().getBody(AccessTokenResponseDTO.class).getExpiresIn());
-                    logger.info("Saved Access Token: " + accessTokenStore.getAccessToken());
+                    logger.info("Saved Access Token: {}", MpesaUtils.maskString(accessTokenStore.getAccessToken()));
                 });
 
         /*
