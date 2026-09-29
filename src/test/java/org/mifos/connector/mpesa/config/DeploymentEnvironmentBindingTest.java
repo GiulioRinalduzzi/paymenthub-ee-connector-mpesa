@@ -93,7 +93,7 @@ class DeploymentEnvironmentBindingTest {
     }
 
     @Test
-    @DisplayName("skip.enabled binds, and defaults to off when the key is absent altogether")
+    @DisplayName("skip.enabled binds from the file, and the environment can switch it on")
     void skipPropertiesBind() {
         assertThat(bind(DEPLOYMENT_ENVIRONMENT, "skip", SkipProperties.class).enabled()).isFalse();
         assertThat(bind(Map.of("SKIP_ENABLED", "true"), "skip", SkipProperties.class).enabled()).isTrue();
